@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const entryInput = document.getElementById("entryPrice");
+  const contractsInput = document.getElementById("contracts");
   const slider = document.getElementById("percentChange");
   const percentDisplay = document.getElementById("percentDisplay");
 
@@ -19,6 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const sign = pct > 0 ? "+" : "";
     percentDisplay.textContent = `${sign}${pct}%`;
 
+    // Default contracts to 1 if blank or invalid
+    let contracts = parseInt(contractsInput.value);
+    if (isNaN(contracts) || contracts < 1) contracts = 1;
+
     // If no valid entry price yet, clear outputs
     if (isNaN(entry) || entry <= 0) {
       newPriceEl.textContent = "—";
@@ -32,13 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const newPrice = entry * (1 + pct / 100);
-    const pnlDollar = newPrice - entry;
+    const pnlDollar = (newPrice - entry) * 100 * contracts;
 
     // Update text
     newPriceEl.textContent = formatMoney(newPrice);
-    pnlDollarEl.textContent = `${pnlDollar >= 0 ? "+" : "-"}${formatMoney(
-      Math.abs(pnlDollar)
-    )}`;
+    pnlDollarEl.textContent = `${pnlDollar >= 0 ? "+" : "-"}$${Math.abs(
+      pnlDollar
+    ).toFixed(2)}`;
     pnlPercentEl.textContent = `${sign}${pct.toFixed(0)}%`;
 
     // Apply color coding
@@ -60,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Event listeners
   entryInput.addEventListener("input", updateOutputs);
+  contractsInput.addEventListener("input", updateOutputs);
   slider.addEventListener("input", updateOutputs);
 
   // Initial render
