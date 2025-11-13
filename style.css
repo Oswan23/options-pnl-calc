@@ -1,0 +1,233 @@
+/* Base reset-ish */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+               "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #101424 0, #05060a 55%, #000000 100%);
+  color: #f5f7ff;
+  min-height: 100vh;
+}
+
+/* Center the card */
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+/* Main card */
+.app-card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(7, 10, 25, 0.9);
+  border-radius: 18px;
+  padding: 20px 18px 22px;
+  box-shadow:
+    0 0 25px rgba(0, 191, 255, 0.15),
+    0 0 80px rgba(0, 118, 255, 0.25);
+  border: 1px solid rgba(0, 191, 255, 0.3);
+  backdrop-filter: blur(14px);
+}
+
+/* Headings */
+.app-card h1 {
+  font-size: 1.4rem;
+  font-weight: 650;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  text-align: center;
+  color: #a7b3ff;
+  margin-bottom: 18px;
+}
+
+/* Fields */
+.field-group {
+  margin-bottom: 18px;
+}
+
+.field-group label {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+  color: #d6ddff;
+}
+
+/* Entry price input with $ prefix */
+.input-with-prefix {
+  display: flex;
+  align-items: center;
+  background: rgba(9, 14, 38, 0.9);
+  border-radius: 12px;
+  padding: 8px 10px;
+  border: 1px solid rgba(95, 171, 255, 0.6);
+  box-shadow: 0 0 18px rgba(0, 119, 255, 0.3);
+}
+
+.prefix {
+  font-size: 0.9rem;
+  color: #7db6ff;
+  margin-right: 4px;
+}
+
+#entryPrice {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #f5f7ff;
+  font-size: 1rem;
+}
+
+#entryPrice::placeholder {
+  color: #4d6185;
+}
+
+/* Slider row */
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slider-min,
+.slider-max {
+  font-size: 0.7rem;
+  color: #7b88c4;
+}
+
+/* Range input styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0df3ff, #1975ff);
+  outline: none;
+  box-shadow: 0 0 14px rgba(0, 195, 255, 0.8);
+}
+
+/* Track (Firefox) */
+input[type="range"]::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0df3ff, #1975ff);
+}
+
+/* Thumb - WebKit */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #00d0ff;
+  box-shadow:
+    0 0 0 4px rgba(0, 200, 255, 0.4),
+    0 0 25px rgba(0, 200, 255, 0.9);
+  margin-top: -8px; /* center thumb on track */
+}
+
+/* Thumb - Firefox */
+input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #00d0ff;
+  box-shadow:
+    0 0 0 4px rgba(0, 200, 255, 0.4),
+    0 0 25px rgba(0, 200, 255, 0.9);
+}
+
+/* Current slider value display */
+.slider-value {
+  margin-top: 6px;
+  font-size: 0.76rem;
+  color: #a7b3ff;
+}
+
+#percentDisplay {
+  font-weight: 600;
+  color: #46e2ff;
+}
+
+/* Results card */
+.results-card {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  background: radial-gradient(circle at top, #151b3a 0, #050711 80%);
+  border: 1px solid rgba(83, 143, 255, 0.6);
+  box-shadow: 0 0 22px rgba(0, 98, 255, 0.44);
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.result-row:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  font-size: 0.78rem;
+  color: #94a0db;
+}
+
+.value {
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Profit / Loss colors */
+.profit {
+  color: #14e07c;
+}
+
+.loss {
+  color: #ff4c6a;
+}
+
+.neutral {
+  color: #f5f7ff;
+}
+
+/* Footnote */
+.footnote {
+  margin-top: 12px;
+  font-size: 0.7rem;
+  color: #6d76b3;
+  text-align: center;
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  .app-card {
+    padding: 18px 14px 20px;
+  }
+
+  .app-card h1 {
+    font-size: 1.2rem;
+  }
+
+  .subtitle {
+    font-size: 0.76rem;
+  }
+}
