@@ -76,21 +76,32 @@ body {
 }
 
 .prefix {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* fixed width so empty prefix still reserves space for alignment */
+  min-width: 20px;
+  width: 20px;
+  height: 20px;
   font-size: 0.9rem;
   color: #7db6ff;
-  margin-right: 4px;
+  margin-right: 8px;
+  flex-shrink: 0;
 }
 
-#entryPrice {
+/* Generic input styling for any input inside the prefix wrapper so both inputs match */
+.input-with-prefix input {
   flex: 1;
   background: transparent;
   border: none;
   outline: none;
   color: #f5f7ff;
   font-size: 1rem;
+  line-height: 1.1;
+  -webkit-appearance: none;
 }
 
-#entryPrice::placeholder {
+.input-with-prefix input::placeholder {
   color: #4d6185;
 }
 
