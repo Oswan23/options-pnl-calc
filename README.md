@@ -2,7 +2,7 @@ Options P&L Limit Price Calculator
 
 A simple mobile-friendly tool I built to help with one specific problem that kept showing up during my trading journey:
 
-When trading options, the limit price you set when selling a contract determines your actual P&L — but it’s not always intuitive how that limit price relates to your percentage gain or dollar gain.
+When trading options, the limit price you set when selling a contract determines your actual P&L — but it’s not always intuitive how that limit price relates to your percentage gain or dollar gain, at least when you are about to sell it.
 Most times, I found myself guessing a limit price instead of knowing exactly what price matches a +20%, +50%, or +100% move on my contract.
 
 This tool fixes that.
@@ -13,6 +13,7 @@ This tool fixes that.
 
 You enter:
 	•	Your entry price for the option (per contract)
+	•	Number of contracts (optionally)
 	•	A % change slider for how much you want the contract to move
 (e.g. +15%, +50%, +120%, etc.)
 
@@ -47,7 +48,7 @@ It works smoothly inside Safari or Chrome and looks like a mini app when saved t
 
 🌐 Live Demo (GitHub Pages)
 
-(After enabling GitHub Pages, put your link here.)
+[](https://oswan23.github.io/options-pnl-calc/)
 
 ⸻
 
